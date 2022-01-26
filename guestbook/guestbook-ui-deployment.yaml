@@ -23,16 +23,16 @@ apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
  name: guestbook
- namespace: {{ .Release.Namespace }}
+ namespace: guestbook
 
 spec:
   gateways:
     - "istio-system/main"
   hosts:
-   - guestbook.{{ .Values.hostname }}
+   - guestbook.bigbang.dev
   http:
   - route:
     - destination:
         port:
-          number: {{ .Values.port | default "20001" }}
-        host: guestbook-ui.{{ .Release.Namespace }}.svc.cluster.local
+          number: 80
+        host: guestbook-ui.guestbook-ui-85985d774c-4tvsb .svc.cluster.local
