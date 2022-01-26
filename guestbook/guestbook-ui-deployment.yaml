@@ -27,7 +27,7 @@ metadata:
 
 spec:
   gateways:
-    - "istio-system/main"
+    - "istio-system/public"
   hosts:
    - guestbook.bigbang.dev
   http:
