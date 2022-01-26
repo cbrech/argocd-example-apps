@@ -35,4 +35,4 @@ spec:
     - destination:
         port:
           number: 80
-        host: guestbook-ui.guestbook-ui-85985d774c-4tvsb .svc.cluster.local
+        host: guestbook-ui.guestbook-ui-85985d774c-4tvsb.svc.cluster.local
