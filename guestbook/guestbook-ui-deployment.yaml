@@ -18,3 +18,21 @@ spec:
         name: guestbook-ui
         ports:
         - containerPort: 80
+
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+ name: guestbook
+  namespace: {{ .Release.Namespace }}
+
+spec:
+  gateways:
+    - "istio-system/main"
+  hosts:
+   - guestbook.{{ .Values.hostname }}
+  http:
+  - route:
+    - destination:
+        port:
+          number: {{ .Values.port | default "20001" }}
+        host: guestbook-ui.{{ .Release.Namespace }}.svc.cluster.local
