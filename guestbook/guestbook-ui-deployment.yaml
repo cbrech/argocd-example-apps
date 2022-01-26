@@ -19,20 +19,4 @@ spec:
         ports:
         - containerPort: 80
 
-apiVersion: networking.istio.io/v1beta1
-kind: VirtualService
-metadata:
- name: guestbook
- namespace: guestbook
 
-spec:
-  gateways:
-    - "istio-system/public"
-  hosts:
-   - guestbook.bigbang.dev
-  http:
-  - route:
-    - destination:
-        port:
-          number: 80
-        host: guestbook-ui.guestbook-ui-85985d774c-4tvsb.svc.cluster.local
